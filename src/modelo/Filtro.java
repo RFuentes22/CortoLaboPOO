@@ -10,7 +10,7 @@ package modelo;
  * @author LN710Q
  */
 public class Filtro {
-    private int Ninscipcion;
+    private String Ninscipcion;
     private String Nombre="";
     private String propietario;
     private int edad;
@@ -20,7 +20,7 @@ public class Filtro {
     public Filtro() {
     }
 
-    public Filtro(int Ninscipcion, String Nombre, String propietario,int edad, String raza, boolean estado) {
+    public Filtro(String Ninscipcion, String Nombre, String propietario,int edad, String raza, boolean estado) {
         this.Ninscipcion = Ninscipcion;
         this.Nombre = Nombre;
         this.propietario = propietario;
@@ -49,11 +49,11 @@ public class Filtro {
         this.raza = raza;
     }
 
-    public int getNinscipcion() {
+    public String getNinscipcion() {
         return Ninscipcion;
     }
 
-    public void setNinscipcion(int Ninscipcion) {
+    public void setNinscipcion(String Ninscipcion) {
         this.Ninscipcion = Ninscipcion;
     }
 
@@ -93,6 +93,11 @@ public class Filtro {
 
     public void setEdad(int edad) {
         this.edad = edad;
+    }
+
+    @Override
+    public String toString() {
+        return "Filtro{" + "Ninscipcion=" + Ninscipcion + ", Nombre=" + Nombre + ", propietario=" + propietario + ", edad=" + edad + ", raza=" + raza + ", estado=" + estado + '}';
     }
     
     

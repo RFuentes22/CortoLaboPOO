@@ -170,12 +170,16 @@ public class Consulta extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 FiltroDao fd = new FiltroDao();
-                Filtro f = new Filtro(ninscripcion.getText(),nombre.getText(), true);
+                
+                System.out.println(edad.getText());
+                Filtro f = new Filtro(ninscripcion.getText(),nombre.getText(),propietario.getText(),Integer.parseInt(edad.getText()),raza.getSelectedItem().toString(), true);
+                f.setEdad(Integer.parseInt(edad.getText()));
                 if (no.isSelected()) {
                     f.setEstado(false);
                 }
                 if (fd.create(f)) {
                     JOptionPane.showMessageDialog(null, "filtro registrado con exito");
+                   
                     limpiarCampos();
                     llenarTabla();
                 } else {
@@ -187,9 +191,11 @@ public class Consulta extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 FiltroDao fd = new FiltroDao();
-                Filtro f = new Filtro(ninscripcion.getText(),nombre.getText(), true);
+                Filtro f = new Filtro(ninscripcion.getText(),nombre.getText(),propietario.getText(),Integer.parseInt(edad.getText()),raza.getSelectedItem().toString(), true);
                 if (no.isSelected()) {
                     f.setEstado(false);
+                    f.setNinscipcion(ninscripcion.getText());
+                    
                 }
                 if (fd.update(f)) {
                     JOptionPane.showMessageDialog(null, "filtro modificado con exito");
@@ -223,7 +229,7 @@ public class Consulta extends JFrame {
                 if (f == null) {
                     JOptionPane.showMessageDialog(null, "El filtro buscado no se ha encontrado");
                 } else {
-                    ninscripcion.setText(Integer.toString(f.getNinscipcion()));
+                    ninscripcion.setText(f.getNinscipcion());
                     
                     if (f.getExixtencia()) {
                         si.setSelected(true);
