@@ -11,32 +11,33 @@ package modelo;
  */
 public class Filtro {
     private int Ninscipcion;
-    private String Nombre;
+    private String Nombre="";
     private String propietario;
+    private int edad;
     private String raza;
     private boolean estado;
     
     public Filtro() {
     }
 
-    public Filtro(int id, String codigo, String marca, String stock, boolean estado) {
-        this.Ninscipcion = id;
-        this.Nombre = codigo;
-        this.propietario = marca;
-        this.raza = stock;
+    public Filtro(int Ninscipcion, String Nombre, String propietario,int edad, String raza, boolean estado) {
+        this.Ninscipcion = Ninscipcion;
+        this.Nombre = Nombre;
+        this.propietario = propietario;
+        this.raza = raza;
         this.estado = estado;
     }
 
-    public Filtro(String codigo, String marca,String stock, boolean estado) {
-        this.Nombre = codigo;
-        this.propietario = marca;
-        this.raza=stock;
+    public Filtro(String Nombre, String propietario,String raza, boolean estado) {
+        this.Nombre = Nombre;
+        this.propietario = propietario;
+        this.raza=raza;
         this.estado = estado;
     }
 
-    public Filtro(String marca, String stock, boolean estado) {
-        this.propietario = marca;
-        this.raza = stock;
+    public Filtro(String propietario, String raza, boolean estado) {
+        this.propietario = propietario;
+        this.raza = raza;
         this.estado = estado;
     }
 
@@ -84,6 +85,14 @@ public class Filtro {
 
     public void setEstado(boolean estado) {
         this.estado = estado;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
     }
     
     
